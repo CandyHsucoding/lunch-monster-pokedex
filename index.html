@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>午餐小怪獸圖鑑</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="game-panel" aria-labelledby="game-title">
+        <header class="top-bar">
+          <div>
+            <p class="eyebrow">均衡餐盤任務</p>
+            <h1 id="game-title">午餐小怪獸圖鑑</h1>
+          </div>
+          <div class="score-box" aria-live="polite">
+            <span id="scoreText">0 / 8</span>
+            <small>已解鎖</small>
+          </div>
+        </header>
+
+        <div class="mission-card">
+          <div class="mission-head">
+            <span id="roundLabel" class="round-pill">第 1 題</span>
+            <span id="monsterHint" class="hint-pill">答對解鎖新怪獸</span>
+          </div>
+          <h2 id="questionText"></h2>
+          <div id="answerGrid" class="answer-grid"></div>
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+          <div class="action-row">
+            <button id="nextButton" class="primary-button" type="button" disabled>下一題</button>
+            <button id="resetButton" class="ghost-button" type="button">重新開始</button>
+          </div>
+        </div>
+
+        <section class="tray-guide" aria-label="均衡餐盤提示">
+          <div class="tray-item grains">全榖雜糧</div>
+          <div class="tray-item protein">豆魚蛋肉</div>
+          <div class="tray-item veg">蔬菜</div>
+          <div class="tray-item fruit">水果</div>
+          <div class="tray-item dairy">乳品</div>
+        </section>
+      </section>
+
+      <section class="dex-panel" aria-labelledby="dex-title">
+        <div class="dex-head">
+          <div>
+            <p class="eyebrow">Lunch Monster Dex</p>
+            <h2 id="dex-title">收集圖鑑</h2>
+          </div>
+          <p id="completeText" class="complete-text">答對題目後，小怪獸會出現在這裡。</p>
+        </div>
+        <div id="monsterDex" class="monster-dex"></div>
+      </section>
+    </main>
+
+    <template id="monsterTemplate">
+      <article class="monster-card locked">
+        <div class="monster-art" aria-hidden="true"></div>
+        <div class="monster-info">
+          <h3></h3>
+          <p></p>
+        </div>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
