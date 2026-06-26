@@ -297,14 +297,15 @@ h1 {
 }
 
 .monster-card {
-  min-height: 228px;
+  min-height: 190px;
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px;
   background: #ffffff;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: minmax(112px, 40%) minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
 }
 
 .monster-card.locked {
@@ -318,10 +319,11 @@ h1 {
 }
 
 .monster-art {
-  width: 168px;
+  width: min(100%, 170px);
   max-width: 100%;
   aspect-ratio: 1 / 1;
   align-self: center;
+  justify-self: center;
   border-radius: 8px;
   background-color: #e7ece6;
   position: relative;
@@ -329,9 +331,10 @@ h1 {
 }
 
 .unlocked .monster-art {
-  background-color: #fffbee;
+  background-color: transparent;
   display: grid;
   place-items: center;
+  overflow: visible;
 }
 
 .monster-art img {
@@ -339,6 +342,8 @@ h1 {
   height: 100%;
   display: block;
   object-fit: contain;
+  border-radius: 8px;
+  background: #fffbee;
 }
 
 .monster-art::before,
@@ -409,6 +414,10 @@ h1 {
     height: auto;
     min-height: 0;
   }
+
+  .monster-card {
+    grid-template-columns: minmax(140px, 34%) minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 620px) {
@@ -432,6 +441,12 @@ h1 {
   .answer-grid,
   .monster-dex {
     grid-template-columns: 1fr;
+  }
+
+  .monster-card {
+    min-height: 0;
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
   .monster-art {
