@@ -205,6 +205,10 @@ function renderDex() {
       image.src = monster.image;
       image.alt = monster.name;
       image.loading = "lazy";
+      image.style.width = "100%";
+      image.style.height = "100%";
+      image.style.objectFit = "contain";
+      image.style.display = "block";
       art.append(image);
     }
     title.textContent = isUnlocked ? monster.name : "尚未解鎖";
